@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제주, 살아있는 과학의 보고</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1 class="logo"><a href="{{ url_for('index') }}">JEJU IS</a></h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#geology">제주 지질의 신비</a></li>
+                    <li><a href="#biodiversity">생물 다양성의 보고</a></li>
+                    <li><a href="#climate">기후 변화 연구</a></li>
+                    <li><a href="{{ url_for('quiz') }}">제주 퀴즈</a></li>
+                    <li><a href="#resources">자료실</a></li>
+                    <li><a href="{{ url_for('qgis') }}">
+                        <div><img src="./static/image/OIP.webp" class="jeju-icon">
+                        </div>
+                    </a></li>                    
+                </ul>
+            </nav>
+            <button class="nav-toggle" aria-label="메뉴 열기"></button>
+        </div>
+    </header>
+    
+    <main>
+        <section id="quiz-section" class="content-section quiz-section">
+            <div class="container">
+                <h2>제주 퀴즈! 당신은 제주 과학 전문가?</h2>
+                <div class="quiz-container">
+                    <p class="quiz-question">Q1. 다음 중 제주도의 형성 과정과 가장 관련 깊은 것은 무엇일까요?</p>
+                    <div class="quiz-options">
+                        <label>
+                            <input type="radio" name="quiz1" value="a"> <span>a) 빙하의 침식 작용</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="quiz1" value="b"> <span>b) 화산 활동</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="quiz1" value="c"> <span>c) 운석 충돌</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="quiz1" value="d"> <span>d) 지진으로 인한 지각 변동</span>
+                        </label>
+                    </div>
+                    <button class="submit-quiz-btn">정답 확인</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 제주 과학 가치. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">개인정보처리방침</a> |
+                <a href="#">이용약관</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

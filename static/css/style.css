@@ -1,0 +1,417 @@
+/* 기본 설정 */
+:root {
+    --primary-color: #007bff; /* 메인 색상 */
+    --secondary-color: #6c757d; /* 보조 색상 */
+    --text-color: #343a40; /* 기본 텍스트 색상 */
+    --bg-light: #f8f9fa; /* 밝은 배경 색상 */
+    --bg-dark: #343a40; /* 어두운 배경 색상 */
+    --font-family: 'Noto Sans KR', sans-serif; /* 한국어 폰트 */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+}
+
+/* 헤더 */
+.main-header {
+    background-color: rgba(242, 243, 240, 0.9);
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.logo a {
+    color: var(--text-color);
+}
+
+.main-nav ul {
+    display: flex;
+}
+
+.main-nav ul li {
+    margin-left: 30px;
+}
+
+.jeju-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.main-nav ul li a {
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.nav-toggle { /* 모바일 햄버거 메뉴 버튼 (초기 숨김) */
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+/* 히어로 섹션 */
+.hero-section {
+    background: url('https://via.placeholder.com/1920x800/87CEEB/FFFFFF?text=Jeju+Landscape') no-repeat center center/cover; /* 배경 이미지 변경 필요 */
+    color: #fff;
+    text-align: center;
+    padding: 200px 20px;
+    height: 80vh; /* 뷰포트 높이의 80% */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top: 80px; /* 헤더 높이만큼 아래로 내림 */
+}
+
+.hero-content {
+    /* max-width: 800px;
+    background-color: rgba(0,0,0,0.4);
+    padding: 40px;
+    border-radius: 10px; */
+    position: absolute;
+    z-index: 700;
+}
+
+.image {
+    width: 1500px;
+    height: 800px;
+    position: absolute;
+    z-index: 500;
+}
+
+#jeju-image {
+    position: relative;
+    width: 1500px;
+    height: 800px;
+}
+
+.hero-section h2 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-section p {
+    font-size: 1.3em;
+    margin-bottom: 40px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: darken(var(--primary-color), 10%); /* CSS 변수와 darken 함수는 직접 사용 불가. 대안 필요 */
+    background-color: #0056b3; /* 예시 색상 */
+    text-decoration: none;
+}
+
+/* 콘텐츠 섹션 공통 */
+.content-section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.content-section:nth-of-type(odd) { /* 홀수 번째 섹션 배경색 */
+    background-color: var(--bg-light);
+}
+
+.content-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.content-section p {
+    font-size: 1.1em;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 카드 그리드 */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    padding: 30px;
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.card p {
+    font-size: 1em;
+    color: var(--secondary-color);
+    margin-bottom: 0; /* 카드 내 p 태그 하단 마진 제거 */
+}
+
+/* 푸터 */
+.main-footer {
+    background-color: var(--bg-dark);
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.main-footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-links a {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 0.9em;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 992px) {
+    .main-nav {
+        display: none; /* 모바일에서 네비게이션 숨김 */
+        flex-direction: column;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.95);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    .main-nav.active { /* JavaScript로 토글될 클래스 */
+        display: flex;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-nav ul li {
+        margin: 10px 0;
+    }
+
+    .nav-toggle {
+        display: block; /* 모바일에서 햄버거 메뉴 버튼 보임 */
+        color: var(--text-color);
+    }
+
+    .hero-section h2 {
+        font-size: 2.5em;
+    }
+
+    .hero-section p {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 100px 20px;
+    }
+
+    .hero-section h2 {
+        font-size: 2em;
+    }
+
+    .hero-section p {
+        font-size: 1em;
+    }
+
+    .content-section {
+        padding: 60px 0;
+    }
+
+    .content-section h2 {
+        font-size: 2em;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr; /* 모바일에서 카드를 한 줄로 정렬 */
+    }
+}
+
+/* quiz 섹션 */
+/* quiz-section */
+.quiz-section {
+    background-color: var(--bg-light); /* 밝은 배경색 */
+    padding: 80px 0;
+    text-align: center;
+}
+
+.quiz-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 40px;
+}
+
+.quiz-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.quiz-question {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+.quiz-options {
+    margin-bottom: 30px;
+}
+
+.quiz-options label {
+    display: block; /* 각 보기를 한 줄에 하나씩 배치 */
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    cursor: pointer;
+    padding: 10px 0;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+}
+
+.quiz-options label:hover {
+    background-color: #e9ecef;
+}
+
+.quiz-options input[type="radio"] {
+    margin-right: 15px;
+    transform: scale(1.2); /* 라디오 버튼 크기 조절 */
+    vertical-align: middle;
+}
+
+.quiz-options span {
+    vertical-align: middle;
+}
+
+.submit-quiz-btn {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* 버튼 너비를 100%로 설정 */
+    max-width: 200px; /* 최대 너비 제한 */
+    display: block; /* 블록 요소로 만들어 margin auto 적용 가능하게 */
+    margin: 0 auto 20px auto; /* 중앙 정렬 */
+}
+
+.submit-quiz-btn:hover {
+    background-color: #0056b3; /* 어두운 파란색 */
+}
+
+.quiz-feedback {
+    margin-top: 25px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    min-height: 30px; /* 피드백 메시지 공간 확보 */
+}
+
+.quiz-feedback.correct {
+    color: #28a745; /* 초록색 */
+}
+
+.quiz-feedback.wrong {
+    color: #dc3545; /* 빨간색 */
+}
+
+/* 추가적으로 모바일 화면에서 .quiz-container의 패딩 조절 */
+@media (max-width: 768px) {
+    .quiz-container {
+        padding: 25px;
+    }
+    .quiz-question {
+        font-size: 1.2em;
+    }
+    .quiz-options label {
+        font-size: 1em;
+    }
+}
